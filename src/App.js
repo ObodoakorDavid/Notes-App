@@ -3,17 +3,30 @@
 import "./App.css";
 import Notes from "./Components/Notes";
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Search from "./Components/Search";
-import { MdDarkMode } from "react-icons/md";
-import { MdLightMode } from "react-icons/md";
+import Header from "./Components/Header";
 
 function App() {
   const [notes, setNotes] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [darkMode, setDarkMode] = useState(true);
-
   const currentDate = new Date().toJSON().slice(0, 10);
+
+  useEffect(() => {
+    setTimeout(() => {
+      localStorage.setItem("react-notes-app-data-dave", JSON.stringify(notes));
+    }, 2);
+  }, [notes]);
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(
+      localStorage.getItem("react-notes-app-data-dave")
+    );
+
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
 
   let addNote = (text) => {
     let newNote = [
@@ -25,39 +38,22 @@ function App() {
     ];
     let updatedNotes = [...newNote, ...notes];
     setNotes(updatedNotes);
+    localStorage.setItem("react-notes-app-data-dave", JSON.stringify(notes));
   };
 
   let deleteNote = (id) => {
     let updatedNotes = notes.filter((note) => note.id !== id);
     setNotes(updatedNotes);
+    localStorage.setItem("react-notes-app-data-dave", JSON.stringify(notes));
   };
 
   let handleSearch = (e) => {
     setSearchText(e.target.value);
   };
 
-  let darktheme = () => {
-    document.body.classList.toggle("darkmode");
-
-    if (document.body.classList.contains("darkmode")) {
-      setDarkMode(false);
-    } else {
-      setDarkMode(true);
-    }
-  };
-
   return (
     <div className="App">
-      {darkMode ? (
-        <MdDarkMode className="icon-toggle" onClick={darktheme} />
-      ) : (
-        <MdLightMode
-          className="icon-toggle"
-          onClick={darktheme}
-        />
-      )}
-
-      <h1>Notes App</h1>
+      <Header />
       <Search handleSearch={handleSearch} />
       <Notes
         notes={notes.filter((note) =>
