@@ -50,7 +50,7 @@ small {
   font-weight: 600;
 }
 
-/* ====================================== */
+/* ================= Add Note Starts Here ===================== */
 
 .addNote {
   background-color: rgb(110, 110, 249);
@@ -83,3 +83,20 @@ small {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* ================= Add Note Ends Here ===================== */
+
+/* ================= Search Starts Here ===================== */
+.search{
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+.search input{
+  width: 100%;
+  border: none;
+  outline: none;
+
+}
+/* ================= Search Ends Here ===================== */

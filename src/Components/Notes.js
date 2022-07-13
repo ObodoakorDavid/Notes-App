@@ -16,7 +16,12 @@ const Todos = ({ notes, addNote, deleteNote }) => {
             <p>{noteText}</p>
             <div className="inner_div">
               <small>{date}</small>
-              <MdDelete onClick={deleteNote} className="icon"  />
+              <MdDelete
+                onClick={() => {
+                  deleteNote(id);
+                }}
+                className="icon"
+              />
             </div>
           </div>
         );
