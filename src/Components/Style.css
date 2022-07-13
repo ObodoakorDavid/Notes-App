@@ -87,16 +87,20 @@ small {
 /* ================= Add Note Ends Here ===================== */
 
 /* ================= Search Starts Here ===================== */
-.search{
+.search {
   border: 1px solid gray;
   border-radius: 10px;
   padding-left: 5px;
   padding-bottom: 5px;
+  margin: 0 10px;
 }
-.search input{
+.search input {
   width: 100%;
   border: none;
   outline: none;
+}
 
+.search input:focus {
+  outline: none;
 }
 /* ================= Search Ends Here ===================== */

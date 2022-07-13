@@ -1,12 +1,18 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import "./Style.css";
 
-const Search = () => {
+const Search = ({ handleSearch }) => {
   return (
     <div className="search">
-      <input type="text" placeholder="search..." />
+      <input
+        onChange={(e) => {
+          handleSearch(e);
+        }}
+        type="text"
+        placeholder="search..."
+      />
     </div>
   );
 };
