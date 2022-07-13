@@ -5,10 +5,13 @@ import Notes from "./Components/Notes";
 import { nanoid } from "nanoid";
 import { useState } from "react";
 import Search from "./Components/Search";
+import { MdDarkMode } from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 
 function App() {
   const [notes, setNotes] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [darkMode, setDarkMode] = useState(true);
 
   const currentDate = new Date().toJSON().slice(0, 10);
 
@@ -33,8 +36,27 @@ function App() {
     setSearchText(e.target.value);
   };
 
+  let darktheme = () => {
+    document.body.classList.toggle("darkmode");
+
+    if (document.body.classList.contains("darkmode")) {
+      setDarkMode(false);
+    } else {
+      setDarkMode(true);
+    }
+  };
+
   return (
     <div className="App">
+      {darkMode ? (
+        <MdDarkMode className="icon-toggle" onClick={darktheme} />
+      ) : (
+        <MdLightMode
+          className="icon-toggle"
+          onClick={darktheme}
+        />
+      )}
+
       <h1>Notes App</h1>
       <Search handleSearch={handleSearch} />
       <Notes

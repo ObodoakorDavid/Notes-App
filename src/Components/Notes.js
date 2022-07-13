@@ -6,7 +6,6 @@ import "./Style.css";
 import { MdDelete } from "react-icons/md";
 
 const Todos = ({ notes, addNote, deleteNote }) => {
-  // const todoList = todos.length ? () : ();
   return (
     <div className="Todos">
       {notes.map((note) => {
@@ -21,6 +20,7 @@ const Todos = ({ notes, addNote, deleteNote }) => {
                   deleteNote(id);
                 }}
                 className="icon"
+                style={{color: 'black'}}
               />
             </div>
           </div>
