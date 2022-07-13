@@ -1,0 +1,85 @@
+/** @format */
+
+.inner_div {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.items {
+  padding: 10px;
+  background-color: #fef68a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.items p {
+  white-space: pre-wrap;
+}
+
+.Todos {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 10px;
+}
+
+textarea {
+  background-color: rgb(110, 110, 249);
+  width: 100%;
+  min-height: 100px;
+  max-height: 400px;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-bottom: 40px;
+  resize: none;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+small {
+  font-weight: 600;
+}
+
+/* ====================================== */
+
+.addNote {
+  background-color: rgb(110, 110, 249);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.addNote > div > div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.addNote > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.addNote h2 {
+  padding-bottom: 5px;
+}
+
+.addNote button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
