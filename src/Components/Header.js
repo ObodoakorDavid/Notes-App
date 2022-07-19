@@ -5,18 +5,7 @@ import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import "./Style.css";
 
-const Header = () => {
-  const [darkMode, setDarkMode] = useState(true);
-
-  let darktheme = () => {
-    document.body.classList.toggle("darkmode");
-
-    if (document.body.classList.contains("darkmode")) {
-      setDarkMode(false);
-    } else {
-      setDarkMode(true);
-    }
-  };
+const Header = ({ darkMode, darktheme }) => {
   return (
     <div>
       {darkMode ? (
@@ -24,7 +13,6 @@ const Header = () => {
       ) : (
         <MdLightMode className="icon-toggle" onClick={darktheme} />
       )}
-
       <h1>Notes App</h1>
     </div>
   );

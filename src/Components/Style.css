@@ -33,6 +33,7 @@
 
 textarea {
   background-color: rgb(110, 110, 249);
+  color: black;
   width: 100%;
   min-height: 100px;
   max-height: 400px;
@@ -47,6 +48,10 @@ textarea {
 
 textarea:focus {
   outline: none;
+}
+
+textarea::placeholder {
+  color: white;
 }
 
 small {
@@ -119,4 +124,5 @@ small {
 .search input:focus {
   outline: none;
 }
+
 /* ================= Search Ends Here ===================== */
